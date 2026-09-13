@@ -1,0 +1,16 @@
+# Competition data — "Competition Use Only" per Kaggle rules; never commit or push
+*.parquet
+*.csv
+!submission_template_example.csv
+dataset/
+data/
+# Local artifacts
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+artifacts/
+features/
+models/
+*.pkl
+*.joblib
