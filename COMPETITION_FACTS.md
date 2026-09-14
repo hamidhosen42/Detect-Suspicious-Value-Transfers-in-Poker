@@ -1,3 +1,45 @@
+
+# >>> DATA-VERIFIED FACTS (added 2026-09-14 02:20 after the competition data was downloaded locally; these SUPERSEDE any estimates below) <<<
+
+Data is now at /Users/md.hamidhosen/Documents/Detect Suspicious Value Transfers in Poker/ (actions.parquet, hands.parquet, seats.parquet, players.parquet, development_labels.csv, development_evidence.csv, evaluation_pairs.csv, sample_submission.csv). Computed with pandas/pyarrow (polars/duckdb NOT installed locally).
+
+## CSV schemas (exact)
+- development_labels.csv: 1,860 rows; columns pair_id, player_1, player_2, label (0/1), label_status {confirmed_target: 372, confirmed_non_target: 1488}, behavior_family {none: 1488, directed_transfer: 148, soft_play: 132, coordinated_isolation: 92}. IDs look like P00082F54BA9A / UB2461B374353 (opaque hex).
+- development_evidence.csv: 1,817 rows; columns pair_id, evidence_rank (1..5), hand_id (e.g. H2D8EAC9EC7DA02), behavior_family. 372 positive pairs: 340 have 5 evidence hands, 21 have 4, 11 have 3. Evidence hands by family: directed_transfer 725, soft_play 632, coordinated_isolation 460.
+- evaluation_pairs.csv: 112,540 rows; columns pair_id, player_1, player_2, shared_hands (int = number of EVALUATION-period hands in which both players were dealt; verified to equal a recomputation from seats.parquet exactly).
+- sample_submission.csv: 112,540 rows; risk_score = 0.0, predicted_behavior = none, all evidence slots = NO_EVIDENCE.
+
+## Pool / hand structure (exact)
+- 400 table_ids, EXACTLY 5,000 hands each; phase split EXACTLY 3,000 development + 2,000 evaluation per table (1,200,000 / 800,000 overall).
+- Every player belongs to exactly one table (12,000 players, 30 per table). Blind level is constant per table: big_blind 2 (218 tables), 4 (143), 10 (39).
+- started_at spans 2026-01-01 → 2026-02-02 (simulated). players_dealt always 6.
+- Showdown: 84.4% of hands end without showdown; 2-way showdown 13.9%; 3-way 1.5%. 46.7% of hands end preflop (empty board).
+- final_pot in BB: median 9.5, mean 32.8, 75th pct 24, max 846.
+- Hands per player: development mean 600 (min 126, max 1,243); evaluation mean 400 (min 44, max 906).
+
+## Pair exposure & the evaluation-pair selection rule (exact, reverse-engineered)
+- Eval-period pairs with >=1 shared hand: 172,878 (of 174,000 possible). Included in evaluation_pairs.csv: exactly those with shared_hands >= 38 (= 1.9% of the 2,000 eval hands) AND not a publicly labelled pair AND containing no publicly labelled positive player. Excluded: 19,127 pairs containing a positive player; 1,291 labelled non-target pairs; 39,891 pairs with < 38 shared hands; 29 pairs with >=38 shared hands excluded for an unidentified reason (negligible).
+- evaluation shared_hands distribution: min 38, 5th pct 41, 25th 56, median 76, mean 85.8, 75th 106, 90th 140, 99th 212, max 419. NO evaluation pair has fewer than 5 shared hands → NO_EVIDENCE is never necessary.
+- Development labelled pairs have dev-period shared hands >= 57 (= 1.9% of 3,000) for BOTH positives (min 57, mean 121.3, median 112, max 303) and confirmed negatives (min 57, mean 120.0, median 108.5, max 465) → exposure is by design NOT discriminative between positives and confirmed negatives.
+- Labelled pairs exist on 397 of 400 tables (mean 4.7 labelled pairs/table); positives on 245 tables (155 tables with 1 positive, 63 with 2, 18 with 3, 8 with 4, 1 with 5). Eval pairs per table: mean 281 (min 168, max 344).
+- Positive players: 693 distinct; NONE appear in any evaluation pair. Confirmed-negative-pair players: 2,599 distinct, 2,433 of them appear in evaluation pairs. 11,302 distinct players appear in evaluation pairs.
+
+## Evidence-hand anatomy (exact)
+- 100% of the 1,817 evidence hands are development-phase hands and 100% contain both players of the pair.
+- 69.3% of evidence hands end WITHOUT showdown (1,259/1,817); 25.3% 2-way showdown; 5% 3-way; 0.4% 4-way.
+- Evidence final_pot in BB — directed_transfer: median 34.5, mean 79, 75th 128.5; soft_play: median 17, mean 54.6; coordinated_isolation: median 17.8, mean 53.8. (Overall hand median is 9.5 BB → evidence hands are larger-than-typical pots, especially directed_transfer.)
+
+## Public notebooks available locally (8 .ipynb in the working directory; all are public Kaggle notebooks for this competition)
+Printed out-of-fold numbers (from their own outputs):
+- 'suspicious-detection.ipynb' (V3-H2, 162 KB code, xgboost+duckdb+polars): strict OOF labelled Pair AP 0.9737; PU-weighted surrogate AP 0.568; routed Evidence MAP@5 0.349 (0.391 with H2 blend); Behavior MAP 0.912; exact composite on labelled pairs 0.8426.
+- 'topological-collusion-dynamics-value-transfer-eda.ipynb' / 'base notebook.ipynb' (triple GBDT XGB+LGBM+CatBoost, empirical-Bayes shrinkage, dual-engine evidence): labelled Pair AP 0.965–0.977; PU-stress Pair AP 0.65–0.68; per-family OOF class AP: directed_transfer 0.60, soft_play 0.72, coordinated_isolation 0.22–0.44; Evidence MAP@5 0.45 (global) → 0.50–0.51 (family-specialised blend); projected composite 0.61–0.63.
+- 'poker-e23-clean-label-pn-submission-candidate.ipynb' (E23 clean-label P/N ensemble): labelled AP 0.974, PU-stress 0.706, Evidence MAP@5 0.356 (graded NDCG ranker); projected 0.632.
+- 'detecting-collusive-value-transfer-in-6-max-poker.ipynb' (xgboost; title: "why 0.97 OOF is a trap"): labelled AP 0.9725, PU-stress 0.689 (family-max 0.73); per-family detector APs: directed_transfer 0.83–0.92, soft_play 0.86–0.99, coordinated_isolation 0.76–0.88; states "To move 0.645 → 0.80 you need Pair AP ~0.85 and MAP@5 ~0.65".
+- 'poker-collusion-pu-aware-evidence-ranker.ipynb' (xgboost, duckdb): labelled AP 0.938, PU-stress 0.517, Evidence MAP@5 0.44.
+- 'coordinated-collusion-value-transfer-detection.ipynb' (lightgbm, graph features): OOF Pair AP 0.805, Evidence MAP@5 0.091 (weak), composite 0.68.
+- 'slash-poker-competition-metric.ipynb': the host metric (identical to the code below).
+Terminology used across notebooks: "labelled AP" = AP restricted to confirmed positives vs confirmed negatives; "PU stress AP" = positives vs ALL unlabelled pairs of held-out pools treated as negative (closer to the real evaluation). Public LB leader is 0.938 — far above every public notebook's projected composite, so the leader has something qualitatively better (most likely far stronger Pair AP under the PU/eval distribution and/or a much stronger evidence ranker).
+
 # Detect Suspicious Value Transfers in Poker — verified public facts (scraped 2026-09-13/14)
 
 Source URLs:

@@ -14,3 +14,6 @@ features/
 models/
 *.pkl
 *.joblib
+
+# Downloaded papers (local reading copies; not for redistribution)
+papers/*.pdf
