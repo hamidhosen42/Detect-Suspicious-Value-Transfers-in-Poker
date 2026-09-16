@@ -17,3 +17,6 @@ models/
 
 # Downloaded papers (local reading copies; not for redistribution)
 papers/*.pdf
+
+# Secrets
+token.txt
