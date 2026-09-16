@@ -20,3 +20,5 @@ papers/*.pdf
 
 # Secrets
 token.txt
+work_step*/
+deliverables_*/*.zip
