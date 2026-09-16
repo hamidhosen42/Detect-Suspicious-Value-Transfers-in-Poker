@@ -1,0 +1,21 @@
+{
+  "id": "hosen42/poker-e23-clean-label-pn-submission-candidate",
+  "id_no": 133835058,
+  "title": "poker_E23_clean_label_PN_submission_candidate",
+  "code_file": "poker-e23-clean-label-pn-submission-candidate.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "detect-suspicious-value-transfers-in-poker"
+  ],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-images/python@sha256:dafd4ce5668bbf1ad422e4c109e0f18c9623c3a7c7f48b0235f13142755c40b9",
+  "machine_shape": "None"
+}

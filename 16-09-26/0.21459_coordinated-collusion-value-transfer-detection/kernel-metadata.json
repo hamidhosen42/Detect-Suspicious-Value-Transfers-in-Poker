@@ -1,0 +1,27 @@
+{
+  "id": "avikdas567/coordinated-collusion-value-transfer-detection",
+  "id_no": 133841753,
+  "title": "Coordinated Collusion & Value-Transfer Detection",
+  "code_file": "coordinated-collusion-value-transfer-detection.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [
+    "classification",
+    "feature engineering",
+    "lightgbm",
+    "gradient boosting",
+    "simulations"
+  ],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [
+    "detect-suspicious-value-transfers-in-poker"
+  ],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+  "machine_shape": "NvidiaTeslaT4"
+}
