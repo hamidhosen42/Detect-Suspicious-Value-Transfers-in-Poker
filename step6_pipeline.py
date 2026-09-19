@@ -28,7 +28,6 @@
 #
 # **Step 3 scored 0.80136 on the public leaderboard** (Step 1: 0.671). Implied components: pair AP ≈ 0.90, evidence MAP@5 ≈ 0.51, behaviour MAP ≈ 0.73.
 #
-# **New in Step 4:**
 #
 # * **Evidence stage 2.** A colluding pair has ~12 planted-looking hands but only 5 are labelled. The stage-1 ranker already puts 97 % of labelled hands in its top-20;
 #   a second ranker on that top-20 pool adds the hand's chronological position among the pool (labelled hands skew early), its score relative to the pool maximum and
