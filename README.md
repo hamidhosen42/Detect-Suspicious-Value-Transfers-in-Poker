@@ -1,12 +1,12 @@
 # Detect Suspicious Value Transfers in Poker — full competition record
 
 Kaggle · host **Slash** · Sep 5 – Sep 20 2026 · 2,000,000 synthetic six-max NLHE hands, 12,000 players, 112,540 evaluation pairs
-Kaggle team **"Md. Hamid Hosen"** · final public score **0.90025** (rank ≈ 30 / 350)
+Kaggle team **Hack2Publish** · final public score **0.90025** (rank ≈ 30 / 350)
 
 | member | Kaggle profile | role |
 |---|---|---|
 | Md. Hamid Hosen | [kaggle.com/hosen42](https://www.kaggle.com/hosen42) · [github.com/hamidhosen42](https://github.com/hamidhosen42) | team lead; pipeline design, all Step 1–18 models, final submissions |
-| Sami (esfersami50) | [kaggle.com/esfersami50](https://www.kaggle.com/esfersami50) | evidence experiments (onset-aware stage-2 variant), submissions |
+| esfersami50 | [kaggle.com/esfersami50](https://www.kaggle.com/esfersami50) | evidence experiments (onset-aware stage-2 variant), submissions |
 | Foysal Emon Shanto | [kaggle.com/foysalemonshanto](https://www.kaggle.com/foysalemonshanto) | early baselines and public-notebook analysis |
 
 Competition page: https://www.kaggle.com/competitions/detect-suspicious-value-transfers-in-poker
@@ -77,7 +77,7 @@ All features are computed from gameplay: hole cards, board, seats/positions, sta
 
 # Part A — Solution write-up (≤ 1,500 words, as required for verification)
 
-**Team:** "Md. Hamid Hosen" — Md. Hamid Hosen ([hosen42](https://www.kaggle.com/hosen42)), Sami ([esfersami50](https://www.kaggle.com/esfersami50)), Foysal Emon Shanto ([foysalemonshanto](https://www.kaggle.com/foysalemonshanto))
+**Team:** Hack2Publish — Md. Hamid Hosen ([hosen42](https://www.kaggle.com/hosen42)), [esfersami50](https://www.kaggle.com/esfersami50), Foysal Emon Shanto ([foysalemonshanto](https://www.kaggle.com/foysalemonshanto))
 **Selected submissions:** `final_J_bags20_ev18.csv` (public 0.90025) and `final_F_allbag_ev18.csv` (public 0.89964)
 **Code:** https://github.com/hamidhosen42/Detect-Suspicious-Value-Transfers-in-Poker (see `docs/REPRODUCE.md`)
 
@@ -386,7 +386,7 @@ Public leaderboard scores (team submissions). "Dev" numbers are our development 
 
 # License and attribution
 
-Copyright © 2026 Kaggle team **"Md. Hamid Hosen"**: Md. Hamid Hosen ([kaggle.com/hosen42](https://www.kaggle.com/hosen42)), Sami ([kaggle.com/esfersami50](https://www.kaggle.com/esfersami50)) and Foysal Emon Shanto ([kaggle.com/foysalemonshanto](https://www.kaggle.com/foysalemonshanto)).
+Copyright © 2026 Kaggle team **Hack2Publish**: Md. Hamid Hosen ([kaggle.com/hosen42](https://www.kaggle.com/hosen42)), [kaggle.com/esfersami50](https://www.kaggle.com/esfersami50) and Foysal Emon Shanto ([kaggle.com/foysalemonshanto](https://www.kaggle.com/foysalemonshanto)).
 
 **Code** (`*.py`, `hyp/`, `reproduce/`, `work_step3/scripts/`, and the notebooks in `deliverables_*/`) is released under the MIT License:
 
