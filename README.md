@@ -3,11 +3,11 @@
 Kaggle · host **Slash** · Sep 5 – Sep 20 2026 · 2,000,000 synthetic six-max NLHE hands, 12,000 players, 112,540 evaluation pairs
 Kaggle team **Hack2Publish** · final public score **0.90025** (rank ≈ 30 / 350)
 
-| member | Kaggle profile | role |
-|---|---|---|
-| Md. Hamid Hosen | [kaggle.com/hosen42](https://www.kaggle.com/hosen42) · [github.com/hamidhosen42](https://github.com/hamidhosen42) | team lead; pipeline design, all Step 1–18 models, final submissions |
-| esfersami50 | [kaggle.com/esfersami50](https://www.kaggle.com/esfersami50) | evidence experiments (onset-aware stage-2 variant), submissions |
-| Foysal Emon Shanto | [kaggle.com/foysalemonshanto](https://www.kaggle.com/foysalemonshanto) | early baselines and public-notebook analysis |
+| member | Kaggle profile |
+|---|---|
+| Md. Hamid Hosen | [kaggle.com/hosen42](https://www.kaggle.com/hosen42) · [github.com/hamidhosen42](https://github.com/hamidhosen42) |
+| esfersami50 | [kaggle.com/esfersami50](https://www.kaggle.com/esfersami50) |
+| Foysal Emon Shanto | [kaggle.com/foysalemonshanto](https://www.kaggle.com/foysalemonshanto) |
 
 Competition page: https://www.kaggle.com/competitions/detect-suspicious-value-transfers-in-poker
 
