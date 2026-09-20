@@ -1,6 +1,6 @@
 # Solution Write-up — Detect Suspicious Value Transfers in Poker
 
-**Team:** hosen42, esfersami50, foysalemonshanto
+**Team:** "Md. Hamid Hosen" — Md. Hamid Hosen ([hosen42](https://www.kaggle.com/hosen42)), Sami ([esfersami50](https://www.kaggle.com/esfersami50)), Foysal Emon Shanto ([foysalemonshanto](https://www.kaggle.com/foysalemonshanto))
 **Selected submissions:** `final_J_bags20_ev18.csv` (public 0.90025) and `final_F_allbag_ev18.csv` (public 0.89964)
 **Code:** https://github.com/hamidhosen42/Detect-Suspicious-Value-Transfers-in-Poker (see `docs/REPRODUCE.md`)
 
