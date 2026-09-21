@@ -431,4 +431,3 @@ Copyright © 2026 Kaggle team **Hack2Publish**: Md. Hamid Hosen ([kaggle.com/hos
 
 **Competition data** is not included and is not covered by these licenses. It is provided by Slash under the competition's "Competition Use Only" terms; cite the competition as: *Slash — Detect Suspicious Value Transfers in Poker. Kaggle, 2026. https://www.kaggle.com/competitions/detect-suspicious-value-transfers-in-poker*
 
-Parts of the analysis and code were developed with the assistance of Claude (Anthropic); all design decisions, experiments and submissions were run and verified by the team.
