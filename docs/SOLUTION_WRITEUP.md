@@ -6,26 +6,12 @@
 
 ## Leaderboard results
 
-Final private score **0.89598** (rank 39 / 371) · public 0.90025 · winner 0.9407 private.
+Final private score **0.89598** — rank 39 / 371 (top 10.5 %) · winner 0.9407 private.
 
-| submission | risk | evidence | public | private | selected |
-|---|---|---|---|---|---|
-| **final_J_bags20_ev18** | rank-avg of two 20-seed full-data bags (Step-8 + Step-9 features) | Step 18 | **0.90025** | **0.89598** | ✔ |
-| final_H_bagsonly_ev18 | same, 10-seed bags | Step 18 | 0.90022 | 0.89603 | |
-| final_G_step8heavy_ev18 | bags + CV models, Step-8 weighted 2:1 | Step 18 | 0.89950 | 0.89589 | |
-| **final_F_allbag_ev18** | bags + fold-CV models, equal weights | Step 18 | 0.89964 | 0.89566 | ✔ |
-| final_E_blend3_ev18 | Step-8 CV + Step-9 CV + 10-seed Step-8 bag | Step 18 | 0.89907 | 0.89565 | |
-| blend8_9_16bag | as E | Step 16 | 0.89716 | 0.89499 | |
-| blend89_ev16 | Step-8 CV + Step-9 CV | Step 16 | 0.89690 | 0.89454 | |
-| step17_milv3 | Step 16 + phase-robust MIL hand model | Step 16 | 0.89380 | **0.89955** | not selected |
-| step16 | Step-8 CV model | Step 16 | 0.89625 | 0.89503 | |
-| step8 | Step-8 CV model | Step 8 | 0.89378 | 0.89159 | |
-| step9 | Step-9 CV model | Step 9 | 0.89174 | 0.89113 | |
-| step6 (exposure matching) | | | 0.84157 | 0.83039 | |
-| step3 (first card-aware model) | | | 0.80136 | 0.79778 | |
-| best public notebook re-run | | | 0.69243 | 0.69089 | |
-
-Every final-day blend lost ≈ 0.004 from public to private — the bagging and blending gains were inside the noise of the 30 % public split. The one submission that *gained* on private, Step 17 (MIL hand model, +0.006), had trailed on the public board and was not selected, although all three development views had favoured it.
+| selected submission | risk | evidence | public | private |
+|---|---|---|---|---|
+| **final_J_bags20_ev18** | rank-average of two 20-seed full-data bags (Step-8 and Step-9 feature sets) | Step 18 | 0.90025 | **0.89598** |
+| **final_F_allbag_ev18** | same bags (10 seeds each) + the two fold-CV models, equal weights | Step 18 | 0.89964 | 0.89566 |
 
 ## 1. What the coordination looks like in the data
 
