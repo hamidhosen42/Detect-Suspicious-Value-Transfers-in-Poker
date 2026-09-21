@@ -19,7 +19,7 @@ Public leaderboard scores (team submissions). "Dev" numbers are our development 
 | Step 11–13 | Sep 18 | 0.873 (Step 12) | multiple-instance hand model from pair labels + template target encodings | big dev gains, −0.02 LB: MIL relied on within-pair percentile features whose scale depends on phase length |
 | Step 14–15 | Sep 18 | 0.872 / 0.854 | leave-table-out eval scoring; within-phase percentiles | did not fix it |
 | Step 16 | Sep 19 | 0.896 | Step 8 pair model + template/family evidence re-ranker | evidence transfers (+0.002) |
-| Step 17 | Sep 19 | 0.894 | prank-free MIL v3 | dev up, LB flat → MIL abandoned |
+| Step 17 | Sep 19 | 0.894 (**private 0.900**) | prank-free MIL v3 | dev up, public flat → wrongly abandoned; best private score of all our submissions |
 | blend89_ev16 | Sep 19 | 0.897 | rank-average Step 8 + Step 9 risk | ensembling works |
 | blend3 | Sep 19 | 0.897 | + 10-seed Step 8 bag | |
 | blend4 | Sep 19 | 0.894 | + family-specific rankers | hurt on LB (dev hidden-150 view misled) |
@@ -29,7 +29,9 @@ Public leaderboard scores (team submissions). "Dev" numbers are our development 
 | final_F | Sep 20 | 0.900 | 8cv + 9cv + 8bag + 9bag + Step 18 evidence | **selected** |
 | final_G | Sep 20 | 0.900 | Step-8-heavy weights | neutral |
 | final_H | Sep 20 | 0.900 | 10-seed bags only | full-data bags > CV models |
-| final_J | Sep 20 | **0.900** | 20-seed bags only | **selected**; bagging saturated |
+| final_J | Sep 20 | **0.900** (private 0.896) | 20-seed bags only | **selected**; bagging saturated |
+
+**Private leaderboard (Sep 21):** final_J 0.89598, final_F 0.89566 → rank 39 / 371. Every final-day blend lost ≈ 0.004 public→private (noise of the 30 % public split); Step 17 gained +0.006 and would have ranked ≈ 32.
 
 ## Dead ends (verified, do not repeat)
 

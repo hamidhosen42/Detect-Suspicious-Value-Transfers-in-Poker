@@ -1,7 +1,7 @@
 # Detect Suspicious Value Transfers in Poker — full competition record
 
 Kaggle · host **Slash** · Sep 5 – Sep 20 2026 · 2,000,000 synthetic six-max NLHE hands, 12,000 players, 112,540 evaluation pairs
-Kaggle team **Hack2Publish** · final public score **0.90025** (rank ≈ 30 / 350)
+Kaggle team **Hack2Publish** · public **0.90025** · **private 0.89598 — rank 39 / 371 (top 10.5 %)**
 
 | member | Kaggle profile |
 |---|---|
@@ -37,9 +37,10 @@ Each evaluation pair (two players who shared ≥ 38 hands in the last 2,000 hand
 | our Step 3 (card-conditional policy surprise) | 0.801 | first card-aware model |
 | Step 8 (action-level policy surprise + hard negatives) | 0.894 | the pair model that survived to the end |
 | Step 16 (+ template / family evidence re-ranker) | 0.896 | |
-| **final_J** (20-seed bags + Step 18 evidence) | **0.900** | selected |
-| **final_F** (bags + fold-CV models + Step 18 evidence) | 0.900 | selected (hedge) |
-| leader | 0.938 | |
+| **final_J** (20-seed bags + Step 18 evidence) | **0.900** | selected · private **0.896** |
+| **final_F** (bags + fold-CV models + Step 18 evidence) | 0.900 | selected · private 0.896 |
+| Step 17 (prank-free MIL v3) — not selected | 0.894 | private **0.900**, our best on the private set |
+| leader | 0.938 | private 0.941 |
 
 Leaderboard probes decomposed our score: pair AP ≈ 0.97, evidence MAP@5 ≈ 0.62, behaviour MAP ≈ 0.96. The gap to the leader is almost entirely evidence (they need ≥ 0.70 there); the rule that selects the 3–5 labelled evidence hands out of a pair's ~10 collusion-mode hands is the one thing we did not find.
 
@@ -71,7 +72,8 @@ All features are computed from gameplay: hole cards, board, seats/positions, sta
 * Hidden colluders in the unlabelled development set are few (~150 of 120 k); the "ambiguous" band of loose-but-honest pairs must stay in training as hard negatives.
 * Matching training exposure to evaluation exposure (2,000-hand windows) is worth +0.02.
 * Development metrics were unreliable for stacked hand models (a multiple-instance hand model gained on every dev view and lost 0.02 on the leaderboard: its within-pair percentile features scale with phase length); only the public leaderboard, used sparingly, settled such questions.
-* Seed bagging of full-data models was the only lever that moved the leaderboard *reliably* at the end (+0.0003 to +0.0007 per step).
+* Seed bagging of full-data models moved the public leaderboard by +0.0003 to +0.0007 per step — within split noise; on the private set every final-day blend landed at 0.896, i.e. those gains did not transfer.
+* **Selection lesson.** Step 17 (the phase-robust multiple-instance hand model) scored 0.894 public / **0.900 private** — our best private result — but was not selected because it trailed on the public leaderboard, even though all three development views had favoured it. With a 30 % public split (≈ 150 positives, score SE ≈ 0.008) the development views were the better guide; trusting the public board over consistent development evidence cost ≈ 0.004.
 
 ---
 
