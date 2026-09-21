@@ -25,6 +25,16 @@ Competition page: https://www.kaggle.com/competitions/detect-suspicious-value-tr
 
 ---
 
+## Figures
+
+![Score progression](docs/media/01_score_progression.png)
+
+![Metric decomposition](docs/media/02_metric_decomposition.png)
+
+![Card-conditional signal](docs/media/03_card_conditional_signal.png)
+
+---
+
 ## 1. The task
 
 Each evaluation pair (two players who shared ≥ 38 hands in the last 2,000 hands of their 30-player table) gets a `risk_score`, a `predicted_behavior` (`directed_transfer`, `soft_play`, `coordinated_isolation`, `other_coordination`, `none`) and up to five `evidence_hand_*` IDs. Score = **0.70 · pair AP + 0.20 · evidence MAP@5 + 0.10 · behaviour MAP**. The development period (first 3,000 hands per table) has 1,860 trusted labels (372 positives with ≤ 5 evidence hands each, 1,488 confirmed non-targets); every other development pair is *unknown*.
